@@ -1,11 +1,12 @@
 import React from 'react'; 
-import '../Button/style.scss';
+import IndexStyle from '../Button/index.module.scss';
 
-class Button extends React.Component {
+class Button extends React.Component <{buttonLabel: string }> {
+    // TODO: is a better way to use props?
     render() {
         return (
-            <button className='button'>
-                Button
+            <button className= {IndexStyle.button}>
+                {this.props.buttonLabel}
             </button>
         )
     }

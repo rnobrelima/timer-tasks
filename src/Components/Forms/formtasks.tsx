@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '../Button';
-import '../Forms/style.scss'
+import FormTasksStyle from '../Forms/formtasks.module.scss'
 
 class FormTasks extends React.Component {
     render() {
         return (
-            <form className='newTask'>
-                <div className='inputContainer'>
+            <form className= {FormTasksStyle.newTask}>
+                <div className= {FormTasksStyle.inputContainer}>
                     <label htmlFor='task'>Add Task!</label>
                     <input 
                         type="text" 
@@ -15,7 +15,7 @@ class FormTasks extends React.Component {
                         placeholder='add task!' 
                         required />
                 </div>
-                <div className='inputContainer'>
+                <div className={FormTasksStyle.inputContainer}>
                     <label htmlFor="time">Time</label>
                     <input 
                         type="time" 
@@ -28,7 +28,9 @@ class FormTasks extends React.Component {
                         />
 
                 </div>
-                <Button></Button>
+                <Button
+                buttonLabel='Add'
+                ></Button>
             </form>
         )
 

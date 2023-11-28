@@ -1,12 +1,11 @@
-import React from 'react';
 import FormTasks from '../Forms/formtasks';
 import List from '../List/list';
-import './style.scss';
+import AppStyle from './App.module.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="AppStyle">
+      <header className={AppStyle.AppStyle}>
         <FormTasks></FormTasks>
         <List></List>
       </header>

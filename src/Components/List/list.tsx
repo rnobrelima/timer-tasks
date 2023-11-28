@@ -1,5 +1,5 @@
-import React from 'react';
-import '../List/style.scss'
+import ListStyle from '../List/list.module.scss'
+import Item from './Item/item';
 function List() {
     const tasks = [{
         task: 'read a book!',
@@ -9,14 +9,14 @@ function List() {
         time: '00:30:00'
     }]
     return (
-        <aside className='list'>
+        <aside className= {ListStyle.List}>
             <h3>Tasks</h3>
             <ul>
                 {tasks.map((item, index) => (
-                <li className='item' key={index}>
-                    <h3>{item.task}</h3>
-                    <span>{item.time}</span>
-                </li>
+                    <Item
+                    {...item} // spread operator
+                    >
+                    </Item>
                 ))}
             </ul>
         </aside>
