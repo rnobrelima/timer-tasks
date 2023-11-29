@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Components/Pages/App';
+import App from './Pages/App';
 import FormTasks from './Components/Forms/formtasks';
 import List from './Components/List/list'
 
