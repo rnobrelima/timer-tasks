@@ -1,5 +1,5 @@
 import { ITasks } from '../../../Models/Tasks/tasks'
-import  ListStyle from '../list.module.scss'
+import  ListStyle from '../Item/item.module.scss'
 
 interface Props extends ITasks {
     selectTask: (taskSelected: ITasks) => void 
@@ -13,7 +13,7 @@ export default function Item (
         completed,
         id,
         selectTask
-    }: Props) {
+    }: Readonly<Props>) {
     return (
         <li className={`${ListStyle.item} ${selected ? ListStyle.itemSelected : ''}` }
         onClick={() => selectTask(
