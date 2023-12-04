@@ -26,7 +26,7 @@ function App() {
         tasks = {tasks}
         selectTask={selectTask}
         ></List>
-        <StopWatch></StopWatch>
+        <StopWatch selected={selected} ></StopWatch>
       </header>
     </div>
   );
