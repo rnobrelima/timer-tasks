@@ -1,23 +1,26 @@
+import { time } from 'console';
 import { ITasks } from '../../Models/Tasks/tasks';
 import ListStyle from '../List/list.module.scss';
 import Item from './Item/item';
 
+interface Props  {
+    tasks: ITasks[],
+    selectTask: (taskSelected: ITasks) => void
+}
+function List({tasks, selectTask}: Props) {
 
-function List({tasks}: {tasks: ITasks[]}) {
 
     return (
-        <aside className= {ListStyle.List}>
+        <aside className= {ListStyle.List} >
             <h3>Tasks</h3>
             <ul>
-                {tasks.map((item, index) => (
+                {tasks.map(item => (
                     <Item
-                    // key={index}
-                    // task= {item.task}
-                    // time = {item.time}
-                    //key={index.toString()}
-                    {...item} // spread operator
-                    >
-                    </Item>
+                    selectTask={selectTask}
+                    {...item} 
+                    key={item.id} 
+                    />
+                   
                 ))}
             </ul>
         </aside>
