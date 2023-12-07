@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import Button from '../Button/button';
 import FormTasksStyle from '../Forms/formtasks.module.scss'
 import { ITasks } from '../../Models/Tasks/tasks';
 import {v4 as uuidv4} from 'uuid';

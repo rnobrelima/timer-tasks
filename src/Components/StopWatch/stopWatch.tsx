@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { timeToSeconds } from "../../Common/Utils/time";
 import { ITasks } from "../../Models/Tasks/tasks";
-import Button from "../Button";
+import Button from "../Button/button";
 import Watch from "./Watch/watch";
 import StopWatchStyle from "./stopWatch.module.scss"
 interface Props {
