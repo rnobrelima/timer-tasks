@@ -18,6 +18,18 @@ export default function StopWatch({selected}: Readonly<Props> ) {
         }
     }, [selected])
 
+    function regressiveCounter(contador:number = 0 ) {
+        if(contador === 0 )
+            alert("Select a Task to start!");
+        setTimeout(() => {
+            if(contador > 0) {
+                setTime(contador -1);
+                return regressiveCounter(contador -1)
+            }
+
+        }, 1000)
+    }
+
     return (
         <div className={StopWatchStyle.stopWatch}>
             <p className={StopWatchStyle.title}>Choise a card and start the cronometer</p>
@@ -26,7 +38,8 @@ export default function StopWatch({selected}: Readonly<Props> ) {
             </div>
             <Button
             buttonLabel='Start'
-            ></Button>
+            onClick= {() => regressiveCounter(time)}
+            />
         </div>
     )
 }
