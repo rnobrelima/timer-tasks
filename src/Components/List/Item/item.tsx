@@ -15,8 +15,8 @@ export default function Item (
         selectTask
     }: Readonly<Props>) {
     return (
-        <li className={`${ListStyle.item} ${selected ? ListStyle.itemSelected : ''}` }
-        onClick={() => selectTask(
+        <li className={`${ListStyle.item} ${selected ? ListStyle.itemSelected : ''} ${completed ? ListStyle.itemCompleted : ''}` }
+        onClick={() => !completed && selectTask(
             {
                 task,
                 time,
@@ -28,6 +28,7 @@ export default function Item (
         >
         <h3>{task}</h3>
         <span>{time}</span>
+        {completed && <span className={ListStyle.done} aria-label='Item Completed!' ></span> }
     </li>
     )
 }

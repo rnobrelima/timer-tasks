@@ -14,8 +14,26 @@ function App() {
     setTasks(oldTask => oldTask.map(task => ({
       ...task,
       selected: task.id === taskSelected.id ? true : false
-  }))) 
+  })));
   }
+
+  function endTask() {
+    if(selected) {
+      setSelected(undefined);
+      setTasks(oldTasks => 
+        oldTasks.map(task => {
+          if(task.id === selected.id) {
+            return {
+              ...task,
+              selected: false,
+              completed: true
+            }
+          }
+          return task;
+        }))
+    }
+  }
+
   return (
     <div className="App">
       <header className={AppStyle.AppStyle}>
@@ -26,7 +44,10 @@ function App() {
         tasks = {tasks}
         selectTask={selectTask}
         ></List>
-        <StopWatch selected={selected} ></StopWatch>
+        <StopWatch 
+        selected={selected} 
+        endTask={endTask}
+        />
       </header>
     </div>
   );

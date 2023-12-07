@@ -6,9 +6,10 @@ import Watch from "./Watch/watch";
 import StopWatchStyle from "./stopWatch.module.scss"
 interface Props {
     selected: ITasks | undefined
+    endTask: () => void
 }
 
-export default function StopWatch({selected}: Readonly<Props> ) {
+export default function StopWatch({selected, endTask}: Readonly<Props> ) {
     
     const [time, setTime] = useState<number>();
 
@@ -19,13 +20,12 @@ export default function StopWatch({selected}: Readonly<Props> ) {
     }, [selected])
 
     function regressiveCounter(contador:number = 0 ) {
-        if(contador === 0 )
-            alert("Select a Task to start!");
         setTimeout(() => {
             if(contador > 0) {
                 setTime(contador -1);
                 return regressiveCounter(contador -1)
             }
+        endTask();
 
         }, 1000)
     }
